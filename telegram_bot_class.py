@@ -1,4 +1,4 @@
-from telegram import Bot
+#from telegram import Bot
 from global_variables import api_token,group_chat_id,api_key,base_url
 import telebot
 from carbon_emissions import CO2Emission
@@ -23,11 +23,11 @@ class Telegram_Module():
     bot=telebot.TeleBot(api_token)
     CO2=CO2Emission()
     sensor=sms.SensorMonitoring(CO2.get_latest_emission())
-    async def send_test_message(self, message):
+    #async def send_test_message(self, message):
         
         #Create an instance of the Telegram Bot class
-        bot = Bot(token=self.bot_token)#you need to the pass the BOT token ID
-        await bot.send_message(chat_id=group_chat_id, text=message)
+       # bot = Bot(token=self.bot_token)#you need to the pass the BOT token ID
+       # await bot.send_message(chat_id=group_chat_id, text=message)
     @bot.message_handler(commands=["hai","hello","hi"])
     def send_greetings(msg):
         bot.send_message(msg.chat.id,text="Hai, Hope you doing well!")
